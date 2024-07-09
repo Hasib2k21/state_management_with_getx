@@ -13,22 +13,27 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Get.defaultDialog(
-              title: 'delete alert',
-              backgroundColor: Colors.green,
-              titlePadding: EdgeInsets.all(10),
-              titleStyle: TextStyle(color: Colors.black87),
-              middleText: ' are you want to delete ',
-              middleTextStyle: TextStyle(color: Colors.white),
-              radius: 4,
-              textConfirm: 'confirm',
-              textCancel: 'Not now',
-              buttonColor: Colors.indigo,
-              onCancel: ()=>{Get.back(closeOverlays: true)},
-              onConfirm: ()=>{Get.back(closeOverlays: false)},
-              barrierDismissible: true,
-
-
+            Get.bottomSheet(
+              Container(
+                height: 200,
+                color: Colors.green,
+                child: Column(
+                  children: [
+                    Text('data'),
+                    Text('data'),
+                    Text('data'),
+                    Text('data'),
+                    Text('data'),
+                    ElevatedButton(
+                      onPressed: () => {Get.back(closeOverlays: true)},
+                      child: Text('Close'),
+                    )
+                  ],
+                ),
+              ),
+              enableDrag: true,
+              isDismissible: false,
+              barrierColor: Colors.red[1],backgroundColor: Colors.purple
             );
           },
           child: Text('Click Me'),
