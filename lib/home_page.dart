@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:state_management_with_getx/product_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,28 +14,9 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Get.bottomSheet(
-              Container(
-                height: 200,
-                color: Colors.green,
-                child: Column(
-                  children: [
-                    Text('data'),
-                    Text('data'),
-                    Text('data'),
-                    Text('data'),
-                    Text('data'),
-                    ElevatedButton(
-                      onPressed: () => {Get.back(closeOverlays: true)},
-                      child: Text('Close'),
-                    )
-                  ],
-                ),
-              ),
-              enableDrag: true,
-              isDismissible: false,
-              barrierColor: Colors.red[1],backgroundColor: Colors.purple
-            );
+           Get.offAll(ProductPage());
+          // Get.off(ProductPage());
+           //Get.offAll(ProductPage());
           },
           child: Text('Click Me'),
         ),
