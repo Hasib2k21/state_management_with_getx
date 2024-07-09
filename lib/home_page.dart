@@ -1,43 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:state_management_with_getx/countter_state/counter_stater_controller.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final CounterStaterController c = Get.put(CounterStaterController());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Getx'),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {c.increment();},
+        child: const Icon(Icons.add),
+      ),
       body: Center(
-        child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                GetStorage().write("Name", "Md Hasibul Islam");
-              },
-              child: Text('write '),
-            ),
-            SizedBox(height: 15,),
-            ElevatedButton(
-              onPressed: () {
-                var MyName=GetStorage().read('Name');
-                Get.snackbar(MyName, 'This Is My Name');
-                
-              },
-              child: Text('read'),
-            ),
-            SizedBox(height: 15,),
-            ElevatedButton(
-              onPressed: () {
-              GetStorage().remove('Name');
-              },
-              child: Text('erase'),
-            ),
-          ],
-        ),
+          child: Obx(() => Text('Add= ${c.count}'))
       ),
     );
   }
