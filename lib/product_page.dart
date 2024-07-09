@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({super.key});
@@ -11,7 +12,9 @@ class ProductPage extends StatelessWidget {
         title: Text('Product Page'),
       ),
       body: Center(
-        child: ElevatedButton(onPressed: (){}, child: Text('New')),
+        child: ElevatedButton(onPressed: (){
+          Get.toNamed('/');
+        }, child: Text('New')),
       ),
     );
   }

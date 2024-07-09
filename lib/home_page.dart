@@ -14,9 +14,9 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-           Get.offAll(ProductPage());
-          // Get.off(ProductPage());
-           //Get.offAll(ProductPage());
+           Get.toNamed('/product');
+          // Get.offNamed(ProductPage());
+           //Get.offAllNamed(ProductPage());
           },
           child: Text('Click Me'),
         ),
